@@ -40,6 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $emailErr = "Invalid email format";
     }
   }
+  $password = test_input($_POST["password"]);
+  $sql = "INSERT INTO fHwtL0NTeB.form_data (name, email, password)
+    VALUES ('$name', '$email', '$password')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 }
 function test_input($data) {
   $data = trim($data);
@@ -58,7 +66,7 @@ function test_input($data) {
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
-  Website: <input type="text" name="password" value="<?php echo $password;?>">
+  Password: <input type="password" name="password" value="<?php echo $password;?>">
   <br><br>>
   <input type="submit" name="submit" value="Submit">  
 </form>
