@@ -48,6 +48,16 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
+$sql = "SELECT * FROM fHwtL0NTeB.form_data";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "name: " . $row["name"]. " - email: " . $row["email"]. " - password: " . $row["password"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
 }
 function test_input($data) {
   $data = trim($data);
