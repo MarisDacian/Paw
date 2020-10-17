@@ -8,6 +8,15 @@
 <body>  
 
 <?php
+
+// Create connection
+$conn = new mysqli('remotemysql.com', 'fHwtL0NTeB', 'Cc4vBFGO8H');
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 // define variables and set to empty values
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
