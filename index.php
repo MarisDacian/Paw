@@ -8,7 +8,6 @@
 <body>  
 
 <?php
-
 // Create connection
 $conn = new mysqli('remotemysql.com', 'fHwtL0NTeB', 'Cc4vBFGO8H');
 
@@ -41,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $emailErr = "Invalid email format";
     }
   }
-
+}
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -72,6 +71,5 @@ echo $email;
 echo "<br>";
 echo $password;
 ?>
-
 </body>
 </html>
