@@ -53,21 +53,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "name: " . $row["name"]. " - email: " . $row["email"]. " - password: " . $row["password"]. "<br>";
+    echo "id: ". $row["name"]. " -name: " . $row["name"]. " - email: " . $row["email"]. " - password: " . $row["password"]. "<br>";
   }
 } else {
   echo "0 results";
 }
-if (isset($_POST['name_to_delete'])){
-
-
-  $sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['name_to_delete'];
-  if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-  } else {
-    echo "Error deleting record: " . $conn->error;
-  }
-  }
 }
 function test_input($data) {
   $data = trim($data);
@@ -91,10 +81,22 @@ function test_input($data) {
   <input type="submit" name="submit" value="Submit">
   <br><br>
   <form class="delete" method="post">
-      name to delere: <input type="text" name="name_to_delete" value="<?php echo $numberId;?>">
+      id to delere: <input type="nubmer" name="id_to_delete" value="<?php echo $numberId;?>">
       <button type="submit" name="sub" value="">Delete</button>
 
 </form>
+<?php
+if (isset($_POST['name_to_delete'])){
+
+
+$sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['id_to_delete'];
+if ($conn->query($sql) === TRUE) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . $conn->error;
+}
+}
+?>
 <?php
 echo "<h2>Your Input:</h2>";
 echo $name;
