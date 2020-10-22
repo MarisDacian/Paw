@@ -89,11 +89,11 @@ function test_input($data) {
 if (isset($_POST['name_to_delete'])){
 
 
-$sql = "DELETE FROM fHwtL0NTeB.form_table WHERE idform_data = ".$_POST['name_to_delete'];
+$sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['name_to_delete'];
 if ($conn->query($sql) === TRUE) {
-  //echo "Record deleted successfully";
+  echo "Record deleted successfully";
 } else {
-  //echo "Error deleting record: " . $conn->error;
+  echo "Error deleting record: " . $conn->error;
 }
 }
 ?>
