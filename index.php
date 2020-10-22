@@ -53,7 +53,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: ". $row["name"]. " -name: " . $row["name"]. " - email: " . $row["email"]. " - password: " . $row["password"]. "<br>";
+    echo "id: ". $row["idform_data"]. " -name: " . $row["name"]. " - email: " . $row["email"]. " - password: " . $row["password"]. "<br>";
   }
 } else {
   echo "0 results";
