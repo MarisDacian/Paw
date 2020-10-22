@@ -86,7 +86,7 @@ function test_input($data) {
 
 </form>
 <?php
-if (isset($_POST['name_to_delete'])){
+if (isset($_POST['id_to_delete'])){
 
 
 $sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['id_to_delete'];
