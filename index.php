@@ -78,9 +78,25 @@ function test_input($data) {
   <br><br>
   Password: <input type="password" name="password" value="<?php echo $password;?>">
   <br><br>>
-  <input type="submit" name="submit" value="Submit">  
-</form>
+  <input type="submit" name="submit" value="Submit">
+   
+  <form class="delete" method="post">
+      id: <input type="text" name="name_to_delete" value="<?php echo $numberId;?>">
+      <button type="submit" name="sub" value="">Delete</button>
 
+</form>
+<?php
+if (isset($_POST['name'])){
+
+
+$sql = "DELETE FROM fHwtL0NTeB.form_table WHERE idform_data = ".$_POST['name_to_delete'];
+if ($conn->query($sql) === TRUE) {
+  //echo "Record deleted successfully";
+} else {
+  //echo "Error deleting record: " . $conn->error;
+}
+}
+?>
 <?php
 echo "<h2>Your Input:</h2>";
 echo $name;
