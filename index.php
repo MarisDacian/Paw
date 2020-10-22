@@ -58,6 +58,16 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
+if (isset($_POST['name_to_delete'])){
+
+
+  $sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['name_to_delete'];
+  if ($conn->query($sql) === TRUE) {
+    echo "Record deleted successfully";
+  } else {
+    echo "Error deleting record: " . $conn->error;
+  }
+  }
 }
 function test_input($data) {
   $data = trim($data);
@@ -85,18 +95,6 @@ function test_input($data) {
       <button type="submit" name="sub" value="">Delete</button>
 
 </form>
-<?php
-if (isset($_POST['name_to_delete'])){
-
-
-$sql = "DELETE FROM fHwtL0NTeB.form_data WHERE idform_data = ".$_POST['name_to_delete'];
-if ($conn->query($sql) === TRUE) {
-  echo "Record deleted successfully";
-} else {
-  echo "Error deleting record: " . $conn->error;
-}
-}
-?>
 <?php
 echo "<h2>Your Input:</h2>";
 echo $name;
